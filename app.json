@@ -2,10 +2,9 @@
   "expo": {
     "name": "appquiz",
     "slug": "appquiz",
+    "scheme": "appquiz",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"]
   },
   "name": "appquiz"
 }
