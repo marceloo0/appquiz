@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "quiztop",
+    "name": "QuizTop",
     "slug": "quiztop",
     "scheme": "quiztop",
-    "version": "1.0.0",
+    "version": "0.0.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -23,7 +23,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#8257E5"
       },
-      "package": "com.marcelobarbosa.quizapp"
+      "package": "com.marcelobarbosa.quizapp",
+      "permissions": []
     }
   },
   "name": "quiztop"
