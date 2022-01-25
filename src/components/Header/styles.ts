@@ -56,7 +56,11 @@ export const Avatar = styled.View`
   align-items: center;
   justify-content: center;
 `;
-export const Photo = styled.Image``;
+export const Photo = styled.Image`
+  width: 56px;
+  height: 56px;
+  border-radius: 32px;
+`;
 
 export const Logout = styled.Image``;
 export const LogOut = styled.TouchableOpacity``;

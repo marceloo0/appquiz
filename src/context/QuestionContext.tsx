@@ -1,21 +1,11 @@
-import React, {
-  createContext,
-  ReactNode,
-  useState,
-  useMemo,
-  useCallback,
-  useEffect,
-} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import firestore from '@react-native-firebase/firestore';
+import React, { createContext, ReactNode, useState, useMemo } from 'react';
 import { api } from '../services/api';
-import {
-  ReportQuestionUser,
-  Result,
-  RootObject,
-} from '@constants/types/question';
+
+import { ToastAndroid } from 'react-native';
+import { Result } from '@constants/types/question';
 import { useAuth } from '@hooks/useAuth';
-import { Alert } from 'react-native';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
 type QuestionContextData = {
   correct: number;
@@ -45,11 +35,9 @@ export const QuestionContextProvider = ({
   const getQuestions = async (quantity: string) => {
     try {
       setLoading(true);
-
       const response = await api.get('api.php', {
         params: { amount: quantity },
       });
-
       setQuestion(response.data.results);
       setLoading(false);
     } catch (error) {
@@ -66,17 +54,14 @@ export const QuestionContextProvider = ({
   };
 
   const sendReportQuestionsUser = () => {
-    firestore()
-      .collection('reports')
-      .add({
-        user_id: data.id,
-        quantity_questions: question.length,
-        questions: reportQuestions,
-        data: new Date(),
-      })
-      .catch(() => {
-        Alert.alert('Report', 'Não foi possível salvar seus relatórios.');
-      });
+    addDoc(collection(db, 'reports'), {
+      user_id: data.id,
+      quantity_questions: question.length,
+      questions: reportQuestions,
+      data: new Date(),
+    }).catch(() => {
+      ToastAndroid.show('Seu relatório não pode ser salvo.', ToastAndroid.LONG);
+    });
   };
 
   const correct = reportQuestions.reduce((acc, cur) => {
@@ -89,8 +74,8 @@ export const QuestionContextProvider = ({
 
   const values = useMemo(
     () => ({
-      correct,
       loading,
+      correct,
       inCorrect,
       question,
       reportQuest,

@@ -6,14 +6,20 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import * as AuthSession from 'expo-auth-session';
 
 type User = {
   id: string;
   name: string;
   avatar: string;
+};
+
+type ResponseToken = {
+  type: string;
+  params: {
+    access_token: string;
+  };
 };
 
 type AuthContextData = {
@@ -28,11 +34,9 @@ type AuthProviderProps = {
   children: ReactNode;
 };
 
-GoogleSignin.configure({
-  webClientId: '',
-});
-
 const USER_DATA = '@quiz:user';
+const { CLIENT_ID } = process.env;
+const { REDIRECT_URI } = process.env;
 
 export const AuthContext = createContext({} as AuthContextData);
 
@@ -59,27 +63,42 @@ export const AuthContextProvider = ({ children }: AuthProviderProps) => {
 
   const signInWithGoogle = async () => {
     setIsLogging(true);
-    const { user } = await GoogleSignin.signIn();
-    if (user) {
-      const userData = {
-        id: user.id,
-        name: user.name as string,
-        avatar: user.photo as string,
-      };
-      setData(userData);
-      await AsyncStorage.setItem(USER_DATA, JSON.stringify(userData));
+
+    const RESPONSE_TYPE = 'token';
+    const SCOPE = encodeURI('profile email');
+
+    const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+
+    const { type, params } = (await AuthSession.startAsync({
+      authUrl,
+    })) as ResponseToken;
+
+    if (type === 'success') {
+      const response = await fetch(
+        `https://www.googleapis.com/oauth2/v2/userinfo?alt=json&access_token=${params.access_token}`
+      );
+      const userInfo = await response.json();
+
+      if (userInfo) {
+        const userData = {
+          id: userInfo.id,
+          name: userInfo.given_name as string,
+          avatar: userInfo.picture as string,
+        };
+        setData(userData);
+
+        await AsyncStorage.setItem(USER_DATA, JSON.stringify(userData));
+      }
     }
-    setIsLogging(true);
+    setIsLogging(false);
   };
 
   const signOutWithGoogle = async () => {
-    await GoogleSignin.signOut();
     await AsyncStorage.removeItem(USER_DATA);
     setData({} as User);
   };
 
   const signOut = useCallback(async () => {
-    await auth().signOut();
     await AsyncStorage.removeItem(USER_DATA);
     setData({} as User);
   }, []);

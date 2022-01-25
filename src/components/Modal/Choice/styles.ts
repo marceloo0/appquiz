@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components/native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 type ButtonProps = {
   button: 'start' | 'cancel';
@@ -54,7 +53,7 @@ export const BtnStart = styled.TouchableOpacity<ButtonProps>`
   ${({ button }) =>
     button === 'cancel' &&
     css`
-      background-color: ${({ theme }) => theme.COLORS.PRIMARY_800};
+      background-color: ${({ theme }) => theme.COLORS.LABEL_200};
     `}
 
   ${({ isDisabled }) =>
