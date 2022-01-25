@@ -19,7 +19,7 @@ export const Header = ({ onPress }: HeaderProps) => {
       <S.Wrapper>
         <S.Info>
           {data.avatar ? (
-            <S.Avatar />
+            <S.Photo source={{ uri: data.avatar }} />
           ) : (
             <S.Avatar>
               <S.Title>{data.name[0]}</S.Title>

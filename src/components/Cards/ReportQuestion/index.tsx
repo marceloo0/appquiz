@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { StartProps } from '@constants/types/components';
+import { Result } from '@constants/types/question';
 
 import * as S from './styles';
-import { Result } from '@src/constants/types/question';
 
 type ItemQuestion = {
   question: Result;

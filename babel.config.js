@@ -3,21 +3,20 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
-      'react-native-reanimated/plugin',
+      'inline-dotenv',
       [
         'module-resolver',
         {
           root: ['./src'],
           extensions: ['.ts', '.tsx', '.js', '.json'],
           alias: {
-            '@components': './src/components',
-            '@screens': './src/screens',
             '@assets': './src/assets',
+            '@components': './src/components',
+            '@constants': './src/constants',
             '@context': './src/context',
             '@hooks': './src/hooks',
-            '@utils': './src/utils',
+            '@screens': './src/screens',
             '@services': './src/services',
-            '@constants': './src/constants',
           },
         },
       ],

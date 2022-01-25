@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from 'react-native';
 
-import { useAuth } from '@hooks/useAuth';
-import inter from '@assets/interrogacao.png';
-import logo from '@assets/logo.png';
+import { useAuth } from '../../hooks/useAuth';
+import inter from '../../assets/interrogacao.png';
+import logo from '../../assets/logo.png';
 
 import * as S from './styles';
-import { ButtonSocial } from '@components/ButtonSocial';
+import { ButtonSocial } from '../../components/ButtonSocial';
 
 export const SignIn = () => {
   const { signInWithGoogle } = useAuth();

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { ButtonSocialProps } from '@constants/types/components';
-import google from '@assets/google.png';
+import { ButtonSocialProps } from '../../constants/types/components';
+import google from '../../assets/google.png';
 
 import * as S from './styles';
 

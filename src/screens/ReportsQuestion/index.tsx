@@ -1,7 +1,6 @@
 import React from 'react';
 
 import arrow_left from '@assets/icons/arrow-left.png';
-import errou from '@assets/icons/errou.png';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useQuestion } from '@hooks/useQuestion';
@@ -48,8 +47,8 @@ export const ReportsQuestion = () => {
           </S.InfoText>
         </S.InfoContainer>
         <S.Wrapper>
-          {question.questions.map((item) => (
-            <ReportQuestion question={item} />
+          {question.questions.map((item, index) => (
+            <ReportQuestion question={item} key={index.toString()} />
           ))}
         </S.Wrapper>
       </S.Content>

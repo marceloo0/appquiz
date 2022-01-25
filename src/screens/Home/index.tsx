@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import firestore from '@react-native-firebase/firestore';
+import { query, collection, where, onSnapshot } from 'firebase/firestore';
 
+import { db } from '../../config/firebase';
 import { useAuth } from '@hooks/useAuth';
 import { Header } from '@components/Header';
 import { Start } from '@components/Cards/Start';
@@ -16,21 +17,18 @@ export const Home = () => {
   const [history, setHistory] = useState<ReportQuestionUser[]>([]);
 
   useEffect(() => {
-    const subscribe = firestore()
-      .collection('reports')
-      .where('user_id', '==', data?.id)
-      .onSnapshot((querySnapshot) => {
-        const reponse = querySnapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          };
-        });
-
-        setHistory(reponse);
+    const q = query(
+      collection(db, 'reports'),
+      where('user_id', '==', data?.id)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const reports: ReportQuestionUser[] = [];
+      querySnapshot.forEach((doc) => {
+        reports.push(doc.data() as ReportQuestionUser);
       });
-
-    return () => subscribe();
+      setHistory(reports);
+    });
+    return () => unsubscribe();
   }, []);
 
   const handleShowChoiceModal = () => {
