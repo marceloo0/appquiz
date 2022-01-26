@@ -1,4 +1,4 @@
-<img src="/src/assets/logo_splash.png" alt="splash">
+<img src="/src/assets/splash.png" alt="splash">
 
 # QUIZ
 
