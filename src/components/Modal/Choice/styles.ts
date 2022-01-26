@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 type ButtonProps = {
   button: 'start' | 'cancel';
@@ -7,42 +8,49 @@ type ButtonProps = {
 
 export const Container = styled.View`
   width: 100%;
-  padding: 0 24px;
+  padding: 0 ${RFPercentage(3)}px;
   align-items: center;
   justify-content: center;
 `;
 export const Title = styled.Text`
-  font-size: 24px;
+  font-size: ${RFValue(24)}px;
 
   color: ${({ theme }) => theme.COLORS.TEXT};
   text-align: center;
+  font-weight: 700;
 `;
 export const SubTitle = styled.Text`
   font-size: 16px;
 
   color: ${({ theme }) => theme.COLORS.TEXT};
   text-align: center;
-  margin-top: 36px;
+  margin-top: ${RFPercentage(4)}px;
 `;
 export const Content = styled.View`
   border-radius: 12px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  height: 500px;
+  height: ${RFPercentage(60)}px;
 `;
 
 export const ButtonsContainer = styled.View`
   border-radius: 12px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  margin-top: 84px;
+  margin-top: ${RFPercentage(4)}px;
   height: 400px;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const Wrapper = styled.View`
+  align-items: center;
+  margin-top: ${RFPercentage(6)}px;
 `;
 
 export const BtnStart = styled.TouchableOpacity<ButtonProps>`
   border-radius: 6px;
-  margin: auto;
+  width: ${RFPercentage(30)}px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BTN};
-  padding: 16px 64px;
+  padding: 16px ${RFPercentage(10)}px;
 
   ${({ button }) =>
     button === 'start' &&
@@ -64,14 +72,17 @@ export const BtnStart = styled.TouchableOpacity<ButtonProps>`
 `;
 export const BtnText = styled.Text`
   color: ${({ theme }) => theme.COLORS.BACKGROUND};
+  text-align: center;
+  font-size: ${RFValue(16)}px;
 `;
 export const InputConatiner = styled.View`
   border: ${({ theme }) => theme.COLORS.BORDER};
-  height: 64px;
+  height: ${RFPercentage(8)}px;
   width: 60%;
   padding: 8px 16px;
   margin: auto;
   margin-top: 24px;
+  border-radius: ${RFPercentage(1)}px;
 `;
 export const InputText = styled.TextInput`
   flex: 1;
@@ -81,5 +92,5 @@ export const InputText = styled.TextInput`
 export const TextContainer = styled.View`
   border-radius: 12px;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  margin-top: 84px;
+  margin-top: ${RFPercentage(6)}px;
 `;

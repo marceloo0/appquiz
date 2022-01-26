@@ -1,16 +1,17 @@
 import React from 'react';
 
 import { ButtonSocialProps } from '../../constants/types/components';
-import google from '../../assets/google.png';
+import Google from '../../assets/icons/google.svg';
 
 import * as S from './styles';
 
-export const ButtonSocial = ({ onPress }: ButtonSocialProps) => {
+export const ButtonSocial = ({ onPress, title }: ButtonSocialProps) => {
   return (
     <S.Container onPress={onPress}>
-      <S.Google source={google} />
-      <S.Line />
-      <S.Title>Sign in with Google</S.Title>
+      <S.ImageContainer>
+        <Google width={44} height={44} />
+      </S.ImageContainer>
+      <S.Title>{title}</S.Title>
     </S.Container>
   );
 };

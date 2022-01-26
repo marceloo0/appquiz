@@ -21,7 +21,7 @@ export default {
     BORDER: '#E1E1E5',
     BORDER_CARD: '#B8DBCB',
 
-    GRADIENT: ['#8257E5', '#57B6E5'],
+    GRADIENT: ['#7671E5', '#57B6E5'],
   },
 
   FONTS: {

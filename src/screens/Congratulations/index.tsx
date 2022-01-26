@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { Share, ToastAndroid } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useQuestion } from '@hooks/useQuestion';
-import illustration from '@assets/icons/Illustration.png';
+
+import Illustration from '@assets/Illustration.svg';
 
 import * as S from './styles';
 
@@ -46,7 +47,7 @@ export const Congratulations = () => {
   return (
     <S.Container>
       <S.Content>
-        <S.Logo source={illustration} />
+        <Illustration width={260} height={250} />
         <S.Wrapper>
           <S.Title>Congratulations</S.Title>
           <S.SubTitle>

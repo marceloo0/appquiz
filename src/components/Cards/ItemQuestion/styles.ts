@@ -41,7 +41,7 @@ export const Title = styled.Text<AlternativeProps>`
       margin-left: 0;
     `}
 `;
-export const Select = styled.Image`
+export const Select = styled.View`
   margin-left: -15px;
 `;
 export const Wrapper = styled.TouchableOpacity`

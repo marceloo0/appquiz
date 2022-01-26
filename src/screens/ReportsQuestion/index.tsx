@@ -1,6 +1,6 @@
 import React from 'react';
 
-import arrow_left from '@assets/icons/arrow-left.png';
+import ArrowLeft from '@assets/icons/arrow-left.svg';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useQuestion } from '@hooks/useQuestion';
@@ -30,7 +30,7 @@ export const ReportsQuestion = () => {
       <S.Content>
         <S.InfoTitle>
           <S.BtnGoBack onPress={handleGoBack}>
-            <S.BtnImage source={arrow_left} />
+            <ArrowLeft width={24} height={24} />
           </S.BtnGoBack>
           <S.TitleReport>Relatório</S.TitleReport>
         </S.InfoTitle>

@@ -1,8 +1,6 @@
 import React from 'react';
 
-import google from '@assets/google.png';
-import logOut from '@assets/icons/log-in.png';
-// import LogOut from '@assets/icons/log-in.png'
+import LogOut from '@assets/icons/log-in.svg';
 
 import * as S from './styles';
 import { useAuth } from '@hooks/useAuth';
@@ -29,7 +27,7 @@ export const Header = ({ onPress }: HeaderProps) => {
           <S.Title>{data.name.split(' ')[0]}</S.Title>
         </S.Info>
         <S.LogOut onPress={onPress}>
-          <S.Logout source={logOut} />
+          <LogOut width={26} height={26} />
         </S.LogOut>
       </S.Wrapper>
     </S.Container>
