@@ -1,10 +1,10 @@
-<img src="/src/assets/splash.png" alt="splash">
+<img src="/src/assets/logo_splash.png" alt="splash">
 
 # QUIZ
 
 <p align = "center">
-  <img alt = "GitHub language count" src = "https://img.shields.io/github/languages/count/marceloo0/quiz">
-  <img alt = "GitHub main language" src = "https://img.shields.io/github/languages/top/marceloo0/quiz">
+  <img alt = "GitHub language count" src = "https://img.shields.io/github/languages/count/marceloo0/appquiz">
+  <img alt = "GitHub main language" src = "https://img.shields.io/github/languages/top/marceloo0/appquiz">
 </p>
 
 ## Link to access this app's website
