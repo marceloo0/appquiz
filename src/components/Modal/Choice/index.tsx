@@ -67,14 +67,16 @@ export const Choice = ({ show, close }: ChoiceProps) => {
                   />
                 </S.InputConatiner>
               </S.TextContainer>
-              <S.BtnStart
-                onPress={handleShow}
-                isDisabled={!qtd}
-                disabled={!qtd}
-                button="start"
-              >
-                <S.BtnText>NEXT</S.BtnText>
-              </S.BtnStart>
+              <S.Wrapper>
+                <S.BtnStart
+                  onPress={handleShow}
+                  isDisabled={!qtd}
+                  disabled={!qtd}
+                  button="start"
+                >
+                  <S.BtnText>NEXT</S.BtnText>
+                </S.BtnStart>
+              </S.Wrapper>
             </>
           )}
         </S.Content>

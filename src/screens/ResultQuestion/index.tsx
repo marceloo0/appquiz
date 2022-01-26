@@ -1,7 +1,7 @@
 import React from 'react';
 
-import acertou from '@assets/icons/acertou.png';
-import errou from '@assets/icons/errou.png';
+import Acertou from '@assets/icons/acertou.svg';
+import Errou from '@assets/icons/errou.svg';
 
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { Result } from '@constants/types/question';
@@ -33,11 +33,11 @@ export const ResultQuestion = () => {
   return (
     <S.Container>
       <S.Content>
-        <S.Logo
-          source={
-            question.correct_answer === question.selected ? acertou : errou
-          }
-        />
+        {question.correct_answer === question.selected ? (
+          <Acertou width={120} height={120} />
+        ) : (
+          <Errou width={120} height={120} />
+        )}
         <S.Wrapper>
           <S.Title>
             {question.correct_answer === question.selected

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled(LinearGradient).attrs(({ theme }) => ({
   colors: theme.COLORS.GRADIENT,
@@ -11,11 +12,12 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
 `;
 
 export const Brand = styled.Image`
-  margin-bottom: 32px;
+  margin-bottom: ${RFPercentage(3)}px;
   position: absolute;
-  top: 164px;
+  top: ${RFPercentage(15)}px;
   left: -30px;
   z-index: 0;
+  opacity: 0.5;
 `;
 
 export const Content = styled.View`
@@ -26,34 +28,35 @@ export const Content = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 48px;
+  font-size: ${RFValue(36)}px;
   font-weight: 700;
   color: ${({ theme }) => theme.COLORS.TITLE};
   width: 100%;
-  margin-bottom: 164px;
+  margin-bottom: ${RFPercentage(10)}px;
 `;
 export const Wrapper = styled.View`
   margin-top: auto;
   position: absolute;
   z-index: 10;
-  bottom: 36px;
+  bottom: ${RFPercentage(1)}px;
   left: 0;
   right: 0;
-  padding: 24px;
+  padding: ${RFPercentage(3)}px;
 `;
 export const Buttons = styled.View`
   align-items: center;
   justify-content: center;
 `;
-export const Logo = styled.Image`
+export const Logo = styled.View`
   position: absolute;
-  top: 48px;
+  top: ${RFPercentage(8)}px;
   right: 20px;
   z-index: 0;
 `;
-export const Inter = styled.Image`
+export const Inter = styled.View`
   position: absolute;
-  top: 130px;
-  right: 40px;
+  top: ${RFPercentage(20)}px;
+  right: -50px;
   z-index: 0;
+  opacity: 0.6;
 `;

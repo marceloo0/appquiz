@@ -2,6 +2,7 @@ import { ReportQuestionUser } from './question';
 
 export type ButtonSocialProps = {
   onPress: () => void;
+  title: string;
 };
 
 export type AlternativeProp = {
