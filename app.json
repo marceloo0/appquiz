@@ -3,7 +3,7 @@
     "name": "QuizTop",
     "slug": "quiztop",
     "scheme": "quiztop",
-    "version": "0.0.3",
+    "version": "0.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -23,7 +23,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#7671E5"
       },
-      "package": "com.marcelobarbosa.quizapp",
+      "package": "com.marcelobarbosa.quiztop",
       "permissions": []
     }
   },
