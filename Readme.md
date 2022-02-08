@@ -9,7 +9,7 @@
 
 ## Link to access this app's website
 
-<a>https://play.google.com/</a>
+<a>https://play.google.com/store/apps/details?id=com.marcelobarbosa.quizapp</a>
 
 ## Some example screens
 
